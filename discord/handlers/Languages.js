@@ -10,7 +10,7 @@ const Languages = class StringHandler extends locales {
 
     if (!this._strings.get(locale)['command'] || !this._strings.get(locale)['command'].hasOwnProperty(command)) {
       if (locale === this.defaultLocale) {
-        return `Описание команды '${command}' не найдено.`
+        return `Description'${command}' not found.`
       }
       return this.command(this.defaultLocale, command)
     }
