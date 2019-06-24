@@ -5,7 +5,7 @@ module.exports = client => {
 
 	this.commandsDirectory = 'commands'
 	if (!fs.existsSync(`./discord/${this.commandsDirectory}`)) { 
-      throw new Error(`Директория команд '${this.commandsDirectory}' не найдена.`) 
+      throw new Error(`Directory '${this.commandsDirectory}' not found.`) 
     }
 	
     this.categories = fs.readdirSync(`./discord/${this.commandsDirectory}`).filter(file => 
