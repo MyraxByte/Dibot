@@ -4,7 +4,7 @@ exports.run = async (client, message, args) => {
 
 exports.help = {
     name: 'test',
-    description: 'Тестовая команда',
+    description: 'Test command',
     usage: [ 'test' ],
     aliases: [ '' ]
 }
