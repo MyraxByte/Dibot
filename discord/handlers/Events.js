@@ -5,7 +5,7 @@ module.exports = client => {
 
 	this.eventsDirectory = 'events'
 	if (!fs.existsSync(`./discord/${this.eventsDirectory}`)) { 
-      throw new Error(`Директория событий '${this.eventsDirectory}' не найдена.`) 
+      throw new Error(`Directory '${this.eventsDirectory}' not found.`) 
     }
 
     this.events = fs.readdirSync(`./discord/${this.eventsDirectory}/`).filter(file => 
