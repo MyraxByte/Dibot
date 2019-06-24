@@ -1,13 +1,13 @@
 const colors = require('ansi-colors')
 
-// Предупреждения
+// Warns
 exports.warn = (...message) => {
 	console.log(colors.brightYellow('[WARNING]:'))
 	console.warn(...message)
 	console.log(colors.brightYellow('============'))
 }
 
-// Ошибка
+// Errors
 exports.error = (...message) => {
   console.log(colors.red('[ERROR]:'))
   console.log(...message)
@@ -19,12 +19,12 @@ exports.message = message => {
   console.log(colors.cyan('[MESSAGE]: ') + message);
 };
 
-// Информационная
+// Info
 exports.info = (...message) => {
   console.log(colors.cyan(`[INFO]: `) + colors.whiteBright(...message))
 }
 
-// Базы данные
+// Database
 exports.db = (...message) => {
   console.log(colors.blue('[DATABASE]: ') + colors.whiteBright(...message))
 }
