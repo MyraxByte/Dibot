@@ -6,12 +6,12 @@ class Locale {
     
     this.defaultLocale = 'ru'
     this.localesDirectory = 'locales'
-    // Проверяем есть ли папка локализации
+
     if (!fs.existsSync(`./discord/${this.localesDirectory}`)) { 
       throw new Error(`Директория локализации '${this.localesDirectory}' не найдена.`) 
     }
 
-    // Проверяем какие локализации имеюся у нас
+
     this.locales = fs.readdirSync(`./discord/${this.localesDirectory}/`).filter(file => 
       fs.statSync(path.join(`./discord/${this.localesDirectory}/`, file)).isDirectory())
 
