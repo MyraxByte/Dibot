@@ -6,18 +6,18 @@ class Locale {
     
     this.defaultLocale = 'ru'
     this.localesDirectory = 'locales'
-
+    // Проверяем есть ли папка локализации
     if (!fs.existsSync(`./discord/${this.localesDirectory}`)) { 
       throw new Error(`Директория локализации '${this.localesDirectory}' не найдена.`) 
     }
 
-
+    // Проверяем какие локализации имеюся у нас
     this.locales = fs.readdirSync(`./discord/${this.localesDirectory}/`).filter(file => 
       fs.statSync(path.join(`./discord/${this.localesDirectory}/`, file)).isDirectory())
 
 
     this.constants = fs.existsSync(path.resolve(`./discord/${this.localesDirectory}/constants.json`)) ? require(path.resolve(`./discord/${this.localesDirectory}/constants.json`)) : null
-    this.constantsRegExp = this.constants ? new RegExp(Object.keys(this.constants).join('|'), 'gi') : null;
+    this.constantsRegExp = this.constants ? new RegExp(Object.keys(this.constants).join('|'), 'gi') : null
 
     this._strings = new Map()
     for (let locale of this.locales) {
@@ -35,7 +35,7 @@ class Locale {
 
 
   _getString(ns, l, k, ...a) {
-    if (!this._strings.has(l)) l = this.defaultLocale;
+    if (!this._strings.has(l)) l = this.defaultLocale
 
     if (!this._strings.get(l)[ns] || !this._strings.get(l)[ns].hasOwnProperty(k)) {
       if (l === this.defaultLocale) {
@@ -43,6 +43,7 @@ class Locale {
       }
       return this._getString(ns, this.defaultLocale, k);
     }
+
 
     if (this.constantsRegExp) {
       return substitute(this._strings.get(l)[ns][k].replace(this.constantsRegExp, matched => this.constants[matched]), ...a);

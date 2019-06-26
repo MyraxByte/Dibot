@@ -1,6 +1,6 @@
 {
   "name": "dibot",
-  "version": "0.0.1",
+  "version": "0.6.1",
   "description": "Bot for Discord",
   "main": "index.js",
   "dependencies": {
@@ -21,7 +21,7 @@
     "url": "git+https://github.com/Mirazex/Dibot.git"
   },
   "author": "Mirax",
-  "license": "GNU",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/Mirazex/Dibot/issues"
   },
