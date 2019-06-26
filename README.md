@@ -22,6 +22,6 @@ Here's a basic list of things I want to add to Azure
 
 
 ## What i use?
-[Node]([https://nodejs.org/](https://nodejs.org/))
-[Discordjs]([https://discord.js.org](https://discord.js.org/))
-[Mongoose]([https://mongoosejs.com/](https://mongoosejs.com/))
+[Node](https://nodejs.org/)
+[Discord.js](https://discord.js.org/)
+[Mongoose](https://mongoosejs.com/)
