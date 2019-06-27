@@ -18,7 +18,7 @@ exports.run = async (client, message, args) => {
             if (!TempCategoryFind) {
 
                 let temp_category = await message.guild.createChannel(tempCategoryName, { type: 'category'})
-                await message.guild.createChannel(tempChannelName, { 
+                await message.guild.createChannel(tempChannelName, {
                         type: 'voice',
                         parent: temp_category.id })
 
@@ -53,6 +53,9 @@ exports.run = async (client, message, args) => {
             let guild = await Dibot.classes.guilds.setTempChan(message.guild.id, null, null)
             message.channel.send(`Temporary's Removed`)
             break
+          default:
+          message.reply(`**Error**! Use: \`${Dibot.guildDB.prefix}t-chan\` \`Create or Remove\``)
+          break
     }
 
 
@@ -60,7 +63,7 @@ exports.run = async (client, message, args) => {
 
 exports.help = {
     name: 'temp-channels',
-    description: 'Add or Remove temp channels to server',
+    description: 'Create or Remove temp channels to server',
     usage: [ 'temp-channels' ],
     aliases: [ 'tmp-chan', 't-chan', 'temp-channels' ]
 }

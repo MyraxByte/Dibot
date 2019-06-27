@@ -9,7 +9,7 @@ exports.run = async (client, message, args) => {
     if (!author.hasPermission('MANAGE_ROLES')) return message.reply(`Sorry, you need "MANAGE_ROLES" permission.`)
 
     // Check inputs
-    if (!reaction_channel || !reaction_message || !reaction_emoji || !reaction_role) return message.channel.send(`**Error**! Use: \`${Dibot.guildDB.prefix}rearole-remove\` \`#channel-name\` \`message_id\` \`:emoji_name:\` \`@role\``)
+    if (!reaction_channel || !reaction_message || !reaction_emoji || !reaction_role) return message.channel.send(`**Error**! Use: \`${Dibot.guildDB.prefix}rr-remove\` \`#channel-name\` \`message_id\` \`:emoji_name:\` \`@role\``)
 
     // Fetch Message and Valid from @reaction_message
     let validMessage = await reaction_channel.fetchMessage(reaction_message).catch((err) => { if(err) return null})
