@@ -23,7 +23,7 @@ exports.run = async (client, message, args) => {
     let guild = await Dibot.classes.guilds.removeReactionRole(message.guild.id, reaction_channel.id, reaction_message, reaction_emoji, reaction_role.id)
     message.channel.send(`Reaction ${reaction_emoji} for role ${reaction_role} remove from message`)
       .then((m) => m.delete(3000))
-    message.delete(3000
+    message.delete(3000)
 }
 
 exports.help = {
