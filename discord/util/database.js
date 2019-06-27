@@ -15,7 +15,12 @@ const Guild = new Schema({
     temp_channel: String,
     temp_category: String,
     locale: { type: String, default: 'ru'},
-    logs: { type: Boolean, default: false },
+    logs: {
+			members: String,
+			roles: String,
+			moderation: String
+
+			}
 
 })
 

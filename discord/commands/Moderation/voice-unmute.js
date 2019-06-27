@@ -1,12 +1,12 @@
 exports.run = async (client, message, args) => {
 
 	let author = message.member
-    let users = await message.mentions.users
+  let users = await message.mentions.users
 
-    if (!author.hasPermission('DEAFEN_MEMBERS')) return message.reply(`Sorry, you need "DEAFEN_MEMBERS" permission.`)
-    if (!users) return message.channel.send(`**Error**! Use: \`${Dibot.guildDB.prefix}v-unmute\` \`@user\``)
+  if (!author.hasPermission('DEAFEN_MEMBERS')) return message.reply(`Sorry, you need "DEAFEN_MEMBERS" permission.`)
+  if (!users) return message.channel.send(`**Error**! Use: \`${Dibot.guildDB.prefix}v-unmute\` \`@user\``)
 
-    let allusers = []
+  let allusers = []
 	users.forEach(user => {
     	let member = message.guild.member(user)
 
@@ -22,12 +22,23 @@ exports.run = async (client, message, args) => {
             member.setDeaf(false)
             member.setMute(false)
         }
-        
-    	allusers.push(member)
-    })
 
-    if (allusers.length === 0) return message.channel.send('You can not unmute voice channels for them..')
+    	allusers.push(member)
+  })
+
+  if (allusers.length === 0) return message.channel.send('You can not unmute voice channels for them..')
 	message.channel.send(`**Voice Channels Unmuted for ${allusers}**`)
+
+	// Moderation logs
+	// Load Database
+	Dibot.guildDB = await Dibot.classes.guilds.getByID(message.guild.id)
+	// Check log channel in database
+	let logChannel = message.guild.channels.get(Dibot.guildDB.logs.moderation)
+	if (!logChannel) return
+	const embed = new Dibot.embed()
+			.setColor(0x81BD53)
+			.setDescription(`${author} unmuted voice chat for **${allusers}**`)
+	logChannel.send(embed)
 }
 
 exports.help = {

@@ -14,7 +14,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "test": "nodemon dibot.js"
+    "test": "nodemon Dibot.js"
   },
   "repository": {
     "type": "git",

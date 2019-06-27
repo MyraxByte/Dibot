@@ -18,7 +18,7 @@ module.exports = class Guild {
 
         guild.prefix = prefix
         await guild.save()
-        
+
         return {msg: `Prefix successfully changed to **\`${guild.prefix}\`**`};
     }
 
@@ -30,4 +30,28 @@ module.exports = class Guild {
 
         return {msg: `Temp channel successfully created!`}
     }
+
+		static async setMemberLogs(id, channel) {
+				let guild = await Guild.getByID(id)
+				guild.logs.members = channel
+				await guild.save()
+
+				return {msg: `Join and Leave Member logs added`}
+		}
+
+		static async setRoleLogs(id, channel) {
+				let guild = await Guild.getByID(id)
+				guild.logs.roles = channel
+				await guild.save()
+
+				return {msg: `Role logs successfully added`}
+		}
+
+		static async setModLogs(id, channel) {
+				let guild = await Guild.getByID(id)
+				guild.logs.moderation = channel
+				await guild.save()
+
+				return {msg: `Moderation logs successfully added`}
+		}
 }

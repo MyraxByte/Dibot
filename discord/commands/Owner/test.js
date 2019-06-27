@@ -1,5 +1,8 @@
 exports.run = async (client, message, args) => {
-    message.channel.send('test')
+  let channel = await message.channel.id
+  let guild = await Dibot.classes.guilds.setMemberLogs(message.guild.id, channel)
+
+  message.channel.send(`${guild.msg}`)
 }
 
 exports.help = {
