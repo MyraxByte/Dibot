@@ -14,9 +14,10 @@ My list TO-DO for Dibot
 - [x] Logs for moderation
 - [ ] Words and Links filter
 - [ ] Nicknames filter
-- [ ] Role Reaction
+- [x] Role Reaction
 - [ ] Channel Reaction
 - [ ] More new functionality...
+- [ ] Improve visual commands
 
 - [ ] Add Documentation
 

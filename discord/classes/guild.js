@@ -54,4 +54,33 @@ module.exports = class Guild {
 
 				return {msg: `Moderation logs successfully added`}
 		}
+
+		// Reaction role
+		static async addReactionRole(id, channel, message, emoji, role) {
+			let guild = await Guild.getByID(id)
+			guild.reaction_role.push({ channel: channel, message: message, emoji: emoji, role: role })
+			await guild.save()
+
+			return {msg: `Reaction role added!`}
+		}
+
+		static async removeReactionRole(id, channel, message, emoji, role) {
+			  let guild = await Guild.getByID(id)
+
+        let index = guild.reaction_role.findIndex(i => i.channel == channel && i.message == message && i.emoji == emoji && i.role == role)
+        guild.reaction_role.splice(index, 1)
+        await guild.save()
+
+        return {msg: `Reaction role removed`}
+    }
+
+		static async deleteReactionMessage(id, message, num) {
+			  let guild = await Guild.getByID(id)
+
+        let index = guild.reaction_role.findIndex(i => i.message == message)
+        guild.reaction_role.splice(index, num)
+        await guild.save()
+
+        return {msg: `Reaction role removed`}
+    }
 }

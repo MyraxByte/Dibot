@@ -20,7 +20,13 @@ const Guild = new Schema({
 			roles: String,
 			moderation: String
 
-			}
+		},
+		reaction_role: [{
+			channel: String,
+			message: String,
+			emoji: String,
+			role: String
+		}]
 
 })
 
