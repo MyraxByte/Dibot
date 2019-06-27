@@ -7,12 +7,10 @@ const colors = require('ansi-colors')
 const mongoose = require('./discord/util/mongoose')
 const database = require('./discord/util/database')
 
-
-
-
 // ==================
 const client = new Client()
 // ==================
+
 Dibot = client
 Dibot.db = database
 Dibot.classes = require('./discord/classes')
@@ -24,10 +22,6 @@ Dibot.commands = new Collection()
 Dibot.aliases = new Collection()
 Dibot.embed = RichEmbed
 Dibot.locales = new StringHandler()
-
-
-
-
 
 // ==================
 
@@ -54,10 +48,5 @@ client.once('ready', () => {
 			game: { name: `Discord Hack Week 2019`, type: 'PLAYING' },
 			status: 'online' // online, dnd, idle
 		})
-
-
 		console.log(Dibot.colors.red(`============================`))
 	})
-
-
-
