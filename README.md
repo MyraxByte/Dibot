@@ -12,7 +12,7 @@ Here's a basic list of things I want to add to Azure
 - [x] Clear, AddRole, RemoveRole commands
 - [x] Text and Voice Mute commands
 - [x] Temp Channels
-- [ ] Logs for moderation
+- [x] Logs for moderation
 - [ ] More new functionality...
 
 - [ ] Words and Links filter
