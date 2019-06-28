@@ -9,13 +9,14 @@ exports.run = async (client, message, args) => {
   let allusers = []
 	users.forEach(user => {
     	let member = message.guild.member(user)
+			Dibot.classes.guilds.addTextMute(message.guild.id, user.id)
 
     	let textChannels = message.guild.channels.filter(c => c.type === 'text')
     	textChannels.forEach(async (channel, id) => {
     		await channel.overwritePermissions(member, {
-				SEND_MESSAGES: false,
-				ADD_REACTIONS: false
-			})
+					SEND_MESSAGES: false,
+					ADD_REACTIONS: false
+				})
     	})
     	allusers.push(member)
     })

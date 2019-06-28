@@ -83,4 +83,61 @@ module.exports = class Guild {
 
         return {msg: `Reaction role removed`}
     }
+
+		// Mutes { Add || Remove || Get }
+		static async addTextMute(id, user) {
+			let guild = await Guild.getByID(id)
+			let mute_type = 'text mute'
+			if(guild.mutes.filter(m => m.user == user && m.mute_type == mute_type).length !== 0) return
+
+			guild.mutes.push({ user: user, mute_type: mute_type })
+		  await guild.save()
+
+			return {msg: `Text Mute Added!`}
+		}
+
+		static async delTextMute(id, user) {
+			let guild = await Guild.getByID(id)
+			let mute_type = 'text mute'
+			if(guild.mutes.filter(m => m.user == user && m.mute_type == mute_type).length == 0) return
+
+			let index = guild.reaction_role.findIndex(i => i.user == user && i.type == type)
+			guild.mutes.splice(index, 1)
+			await guild.save()
+
+			return {msg: `Text Mute removed!`}
+		}
+
+		static async addVoiceMute(id, user) {
+			let guild = await Guild.getByID(id)
+			let mute_type = 'voice mute'
+			if(guild.mutes.filter(m => m.user == user && m.mute_type == mute_type).length !== 0) return
+
+			guild.mutes.push({ user: user, mute_type: mute_type })
+			await guild.save()
+
+			return {msg: `Voice Mute Added!`}
+		}
+
+		static async delVoiceMute(id, user) {
+			let guild = await Guild.getByID(id)
+			let mute_type = 'voice mute'
+			if(guild.mutes.filter(m => m.user == user && m.mute_type == mute_type).length == 0) return
+
+			let index = guild.reaction_role.findIndex(i => i.user == user && i.type == type)
+			guild.mutes.splice(index, 1)
+			await guild.save()
+
+			return {msg: `Voice Mute removed!`}
+		}
+
+		static async removeAllMutes(id) {
+			let guild = await Guild.getByID(id)
+			if(!guild.mutes) return
+			let mlength = guild.mutes.length
+			guild.mutes.splice(0, mlength)
+			await guild.save()
+
+			return {msg: `All Mutes removed!`}
+		}
 }

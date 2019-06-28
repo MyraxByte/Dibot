@@ -26,6 +26,10 @@ const Guild = new Schema({
 			message: String,
 			emoji: String,
 			role: String
+		}],
+		mutes: [{
+			user: String,
+			mute_type: String
 		}]
 
 })

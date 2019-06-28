@@ -9,13 +9,14 @@ exports.run = async (client, message, args) => {
   let allusers = []
 	users.forEach(user => {
     	let member = message.guild.member(user)
+			Dibot.classes.guilds.delVoiceMute(message.guild.id, user.id)
 
     	let textChannels = message.guild.channels.filter(c => c.type === 'voice')
     	textChannels.forEach(async (channel, id) => {
     		await channel.overwritePermissions(member, {
-				SPEAK: null,
-				USE_VAD: null
-			})
+					SPEAK: null,
+					USE_VAD: null
+				})
     	})
 
         if (!member.voiceChannel === 'undefined') {
