@@ -159,4 +159,22 @@ module.exports = class Guild {
 			await guild.save()
 			return
 		}
+
+		// Auto Assing Roles
+		static async addARole(id, role) {
+			let guild = await Guild.getByID(id)
+			if (guild.autoRoles.filter(r => r == role).length !== 0) return
+			guild.autoRoles.push(role)
+			await guild.save()
+			return {msg: `Auto Assign Role <@&${role}> added!`}
+		}
+
+		static async delARole(id, role) {
+			let guild = await Guild.getByID(id)
+			if (guild.autoRoles.filter(r => r == role).length == 0) return
+			let index = guild.autoRoles.findIndex(r => r == role)
+			guild.autoRoles.splice(index, 1)
+			await guild.save()
+			return {msg: `Auto Assign Role <@&${role}> removed!`}
+		}
 }

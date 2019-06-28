@@ -13,11 +13,11 @@ My list TO-DO for Dibot
 - [x] Temp Channels
 - [x] Logs for moderation
 - [x] Role Reaction
+- [x] Auto Assign Roles
 - [x] Invite filter
 - [x] Triggers
 - [ ] Words filter
 - [ ] Links filter
-- [ ] Auto Assign Roles
 
 - [ ] Improve visual commands
 - [ ] Add Documentation

@@ -37,8 +37,8 @@ const Guild = new Schema({
 		}],
 		filters: {
 			invite: { type: Boolean, default: false }
-
-		}
+		},
+		autoRoles: [ String ]
 
 })
 
