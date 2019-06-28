@@ -30,6 +30,10 @@ const Guild = new Schema({
 		mutes: [{
 			user: String,
 			mute_type: String
+		}],
+		triggers: [{
+			trigger: String,
+			response: String
 		}]
 
 })

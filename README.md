@@ -15,7 +15,7 @@ My list TO-DO for Dibot
 - [ ] Words filter
 - [ ] Links filter
 - [ ] Invite filter
-- [ ] Triggers
+- [x] Triggers
 - [ ] Auto Assign Roles
 - [ ] Nicknames filter
 - [x] Role Reaction

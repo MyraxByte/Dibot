@@ -1,18 +1,19 @@
 module.exports = class Guild {
-	// get Guild by id
-	static getByID(id) {
-		return new Promise((resolve, reject) => {
-            Dibot.db.guilds.findById(id, async (err, res) => {
-                if (err) return reject(err)
-                if (!res) {
-                    res = new Dibot.db.guilds({_id: id})
-                    await res.save()
-                }
-                resolve(res)
-            })
-        })
-	}
+		// get Guild by id
+		static getByID(id) {
+			return new Promise((resolve, reject) => {
+	            Dibot.db.guilds.findById(id, async (err, res) => {
+	                if (err) return reject(err)
+	                if (!res) {
+	                    res = new Dibot.db.guilds({_id: id})
+	                    await res.save()
+	                }
+	                resolve(res)
+	            })
+	        })
+		}
 
+		// Prefix
     static async setPrefix(id, prefix) {
         let guild = await Guild.getByID(id)
 
@@ -22,6 +23,7 @@ module.exports = class Guild {
         return {msg: `Prefix successfully changed to **\`${guild.prefix}\`**`};
     }
 
+		// Temp Channels
     static async setTempChan(id, channel, category) {
         let guild = await Guild.getByID(id)
         guild.temp_category = category
@@ -31,6 +33,7 @@ module.exports = class Guild {
         return {msg: `Temp channel successfully created!`}
     }
 
+		// Logs
 		static async setMemberLogs(id, channel) {
 				let guild = await Guild.getByID(id)
 				guild.logs.members = channel
@@ -139,5 +142,37 @@ module.exports = class Guild {
 			await guild.save()
 
 			return {msg: `All Mutes removed!`}
+		}
+
+		// Triggers
+		static async addTrigger(id, trigger, response) {
+			let guild = await Guild.getByID(id)
+			if (guild.triggers.filter(t => t.trigger == trigger).length !== 0) return
+
+			guild.triggers.push({ trigger: trigger, response: response})
+			await guild.save()
+
+			return {msg: `Trigger \`${trigger}\` - \`${response}\` added`}
+		}
+
+		static async delTrigger(id, trigger) {
+			let guild = await Guild.getByID(id)
+			if (guild.triggers.filter(t => t.trigger == trigger).length == 0) return
+
+			let index = guild.triggers.findIndex(i => i.trigger == trigger)
+			guild.triggers.splice(index, 1)
+			await guild.save()
+
+			return {msg: `Trigger \`${trigger}\` removed`}
+		}
+
+		static async removeAllTriggers(id) {
+			let guild = await Guild.getByID(id)
+			if(!guild.triggers) return
+			let tl = guild.triggers.length
+			guild.triggers.splice(0, tl)
+			await guild.save()
+
+			return {msg: `All Triggers removed`}
 		}
 }
