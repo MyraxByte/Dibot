@@ -27,6 +27,6 @@ My list TO-DO for Dibot
 
 
 ## What i use?
-[Node](https://nodejs.org/)
-[Discord.js](https://discord.js.org/)
-[Mongoose](https://mongoosejs.com/)
+![Node ](https://nodejs.org/)
+![Discord.js ](https://discord.js.org/)
+![Mongoose ](https://mongoosejs.com/)
