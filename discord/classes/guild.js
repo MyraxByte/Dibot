@@ -134,8 +134,8 @@ module.exports = class Guild {
 		static async removeAllMutes(id) {
 			let guild = await Guild.getByID(id)
 			if(!guild.mutes) return
-			let mlength = guild.mutes.length
-			guild.mutes.splice(0, mlength)
+			let ml = guild.mutes.length
+			guild.mutes.splice(0, ml)
 			await guild.save()
 
 			return {msg: `All Mutes removed!`}
