@@ -12,17 +12,14 @@ My list TO-DO for Dibot
 - [x] Text and Voice Mute commands
 - [x] Temp Channels
 - [x] Logs for moderation
+- [x] Role Reaction
+- [x] Invite filter
+- [x] Triggers
 - [ ] Words filter
 - [ ] Links filter
-- [ ] Invite filter
-- [x] Triggers
 - [ ] Auto Assign Roles
-- [ ] Nicknames filter
-- [x] Role Reaction
-- [ ] Channel Reaction
-- [ ] More new functionality...
-- [ ] Improve visual commands
 
+- [ ] Improve visual commands
 - [ ] Add Documentation
 
 

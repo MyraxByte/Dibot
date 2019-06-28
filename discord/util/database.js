@@ -34,7 +34,11 @@ const Guild = new Schema({
 		triggers: [{
 			trigger: String,
 			response: String
-		}]
+		}],
+		filters: {
+			invite: { type: Boolean, default: false }
+
+		}
 
 })
 

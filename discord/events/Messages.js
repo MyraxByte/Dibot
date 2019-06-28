@@ -2,7 +2,10 @@ module.exports = client => {
     client.on('message', async message => {
         if (message.author.bot) return
         if (!message.channel.permissionsFor(message.guild.me).missing("SEND_MESSAGES")) return
-        
+
+        require('../handlers/Triggers')(message)
+        require('../filters/invite')(message)
+
         Dibot.guildDB = await Dibot.classes.guilds.getByID(message.guild.id)
         Dibot.userDB = await Dibot.classes.users.getByID(message.author.id)
 
