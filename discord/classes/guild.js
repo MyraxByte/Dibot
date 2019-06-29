@@ -160,6 +160,46 @@ module.exports = class Guild {
 			return
 		}
 
+		static async toggleLinks(id, Boolean) {
+			let guild = await Guild.getByID(id)
+			guild.filters.links = Boolean
+			await guild.save()
+			return
+		}
+
+		static async toggleWords(id, Boolean) {
+			let guild = await Guild.getByID(id)
+			guild.filters.words = Boolean
+			await guild.save()
+			return
+		}
+
+		static async addBadWord(id, word) {
+			let guild = await Guild.getByID(id)
+			if (guild.filteredWords.filter(w => w == word).length !== 0) return
+			guild.filteredWords.push(word)
+			await guild.save()
+			return {msg: `Bad word \`${word}\` added to blacklist`}
+		}
+
+		static async delBadWord(id, word) {
+			let guild = await Guild.getByID(id)
+			if (guild.filteredWords.filter(w => w == word).length == 0) return
+			let index = guild.filteredWords.findIndex(w => w == word)
+			guild.filteredWords.splice(index, 1)
+			await guild.save()
+			return {msg: `Bad word \`${word}\` removed to blacklist`}
+		}
+
+		static async removeAllBadWord(id) {
+			let guild = await Guild.getByID(id)
+			if(!guild.filteredWords) return
+			let fl = guild.filteredWords.length
+			guild.filteredWords.splice(0, fl)
+			await guild.save()
+			return {msg: `All Bad words removed`}
+		}
+
 		// Auto Assing Roles
 		static async addARole(id, role) {
 			let guild = await Guild.getByID(id)

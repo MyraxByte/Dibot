@@ -16,8 +16,8 @@ My list TO-DO for Dibot
 - [x] Auto Assign Roles
 - [x] Invite filter
 - [x] Triggers
-- [ ] Words filter
-- [ ] Links filter
+- [x] Words filter
+- [x] Links filter
 
 - [ ] Improve visual commands
 - [ ] Add Documentation

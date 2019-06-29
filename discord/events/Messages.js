@@ -5,6 +5,8 @@ module.exports = client => {
 
         require('../handlers/Triggers')(message)
         require('../filters/invite')(message)
+        require('../filters/links')(message)
+        require('../filters/words')(message)
 
         Dibot.guildDB = await Dibot.classes.guilds.getByID(message.guild.id)
         Dibot.userDB = await Dibot.classes.users.getByID(message.author.id)

@@ -36,8 +36,11 @@ const Guild = new Schema({
 			response: String
 		}],
 		filters: {
-			invite: { type: Boolean, default: false }
+			invite: { type: Boolean, default: false },
+			links: { type: Boolean, default: false },
+			words: { type: Boolean, default: false }
 		},
+		filteredWords: [ String ],
 		autoRoles: [ String ]
 
 })
