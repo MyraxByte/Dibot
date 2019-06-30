@@ -43,7 +43,7 @@ Bot was developed using: [Node]([https://nodejs.org/](https://nodejs.org/)), [Di
 
 |Command|Args|Description|
 |--|--|--|
-|`d.prefix`| `your prefix` | Set prefix for server|
+|`d.prefix`| `your prefix` | Add prefix to bot commands (for example, d.kick) |
 |`d.temp-channels` | `create` or `remove` | Create or Remove temporary channels|
 |`d.rearole-add`|`<#channel> <message_id> <:emoji:> <@role>`| Add reaction role for specific message |
 |`d.rearole-remove`|`<#channel> <message_id> <:emoji:> <@role>`| Remove reaction role from specific message |
