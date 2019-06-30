@@ -28,7 +28,7 @@ Bot was developed using: [Node]([https://nodejs.org/](https://nodejs.org/)), [Di
 |--|--|--|
 |`d.clear`| `1-100` |Clear messages|
 |`d.ban`| `@users` |Ban user on server|
-|`d.unban-all`| *none* |Unban all banned users|
+|`d.unban-all`||Unban all banned users|
 |`d.kick`| `@users` |Kick user from the server|
 |`d.text-mute`| `@users` |Mute member on all text channels|
 |`d.text-unmute`| `@users` |Unmute member on all text channels|
